@@ -50,4 +50,3 @@ Example: *1, 2, 3, 4*
 3. Configs are visible for ALL USERS
 4. **!!TESTRAIL USER YOU PROVIDE MUST HAVE READ RIGHTS FOR ALL INSTANCES INCLUDING USERS!!** 
 
-# testrail_migrator

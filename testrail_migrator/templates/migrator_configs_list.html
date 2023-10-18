@@ -1,0 +1,46 @@
+{% extends 'migrator_base.html' %}
+
+{% block title %}Configs{% endblock %}
+
+{% block content %}
+    <h2>Configs list</h2>
+
+    <p>
+        <a href="{% url 'plugins:testrail_migrator:settings-add' %}">Add config</a>
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Verbose name</th>
+            <th scope="col">Testrail api url</th>
+            <th scope="col">Testy attachments url</th>
+            <th scope="col">delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for config in configs %}
+            <tr>
+                <td>
+                    <a href="{% url 'plugins:testrail_migrator:settings-edit' config.pk %}">
+                        {{ config.verbose_name }}
+                    </a>
+                </td>
+                <td>{{ config.testrail_api_url }}</td>
+                <td>{{ config.testy_attachments_url }}</td>
+                <td>
+                    <a class="btn btn-danger" href="{% url 'plugins:testrail_migrator:settings-delete' config.pk %}">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No configs found
+                    <a href="{% url 'plugins:testrail_migrator:settings-add' %}">Add config</a>.
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

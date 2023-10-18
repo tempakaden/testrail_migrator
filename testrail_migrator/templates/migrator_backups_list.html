@@ -1,0 +1,30 @@
+{% extends 'migrator_base.html' %}
+
+{% block title %}Configs{% endblock %}
+
+{% block content %}
+    <h2>Backup list</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Filepath</th>
+            <th scope="col">delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for backup in backups %}
+            <tr>
+                <td>{{ backup.name }}</td>
+                <td>{{ backup.filepath }}</td>
+                <td>
+                    <a class="btn btn-danger" href="{% url 'plugins:testrail_migrator:backup-delete' backup.pk %}">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

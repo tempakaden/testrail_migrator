@@ -1,0 +1,2 @@
+recursive-include testrail_migrator/templates *
+recursive-include testrail_migrator/static *
